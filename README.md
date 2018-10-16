@@ -1,6 +1,6 @@
 # my-echarts-demo
 
-> A Mpvue project
+> mpvue实现动态加载echarts图表数据
 
 ## Build Setup
 
