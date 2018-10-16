@@ -18,4 +18,31 @@ npm run build
 npm run build --report
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 修改内容
+在mpvue官方修改`ec-canvas.js`的基础上，再次对`ec-canvas/ec-canvas.js`进行调整
+
+设置`setOption`函数
+
+```
+    setOptions () {
+      this.chart.clear()
+      this.chart.setOption(this.data.ec.options)
+    },
+```
+设置`ec`被更改时执行`setOptions`函数
+
+```
+  properties: {
+    canvasId: {
+      type: String,
+      value: 'ec-canvas'
+    },
+
+    ec: {
+      type: Object,
+      observer: function () {
+        this.setOptions()
+      }
+    }
+  },
+```
