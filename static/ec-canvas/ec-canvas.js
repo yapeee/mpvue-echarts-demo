@@ -11,7 +11,7 @@ Component({
     ec: {
       type: Object,
       observer: function () {
-        this.init()
+        this.setOptions()
       }
     }
   },
@@ -77,6 +77,10 @@ Component({
           this.chart = initChart(canvas, res.width, res.height);
         }
       }).exec();
+    },
+    setOptions () {
+      this.chart.clear()
+      this.chart.setOption(this.data.ec.options)
     },
 
     touchStart(e) {
